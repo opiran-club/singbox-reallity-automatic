@@ -13,23 +13,6 @@ print_with_delay() {
 # Introduction animation
 echo ""
 echo ""
-print_with_delay "s" 0.1
-print_with_delay "i" 0.1
-print_with_delay "n" 0.1
-print_with_delay "g" 0.1
-print_with_delay "-" 0.1
-print_with_delay "R" 0.1
-print_with_delay "E" 0.1
-print_with_delay "A" 0.1
-print_with_delay "L" 0.1
-print_with_delay "I" 0.1
-print_with_delay "T" 0.1
-print_with_delay "Y" 0.1
-print_with_delay "-" 0.1
-print_with_delay "b" 0.1
-print_with_delay "o" 0.1
-print_with_delay "x" 0.1
-print_with_delay " " 0.1
 print_with_delay "b" 0.1
 print_with_delay "y" 0.1
 print_with_delay " " 0.1
