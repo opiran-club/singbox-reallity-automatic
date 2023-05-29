@@ -50,60 +50,51 @@ fi
 # Check if reality.json, sing-box, and sing-box.service already exist
 if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/etc/systemd/system/sing-box.service" ]; then
 
-    echo "Reality files already exist."
+    echo ".روی سرور شما هسته سینک باکس نصب است"
     echo ""
-    echo "Please choose an option:"
+    echo ":لطفا یک گزینه را انتخاب کنید"
     echo ""
-    echo "1. Reinstall"
-    echo "2. Modify"
-    echo "3. Uninstall"
+    echo "1. نصب یا نصب مجدد"
+    echo "2. تغییر پورت و اس ان آی"
+    echo "3. حذف هسته سینک باکس"
     echo ""
     read -p "Enter your choice (1-3): " choice
 
     case $choice in
         1)
-            echo "Reinstalling..."
-            # Uninstall previous installation
+            echo " ...نصب مجدد"
             systemctl stop sing-box
             systemctl disable sing-box
             rm /etc/systemd/system/sing-box.service
             rm /root/reality.json
             rm /root/sing-box
 
-            # Proceed with installation
             ;;
         2)
-            echo "Modifying..."
+            echo "... در حال تغییرات"
 	    # Get current listen port
 	    current_listen_port=$(jq -r '.inbounds[0].listen_port' /root/reality.json)
 
-	    # Ask for listen port
 	    read -p "Enter desired listen port (Current port is $current_listen_port): " listen_port
 	    listen_port=${listen_port:-$current_listen_port}
 
-	    # Get current server name
 	    current_server_name=$(jq -r '.inbounds[0].tls.server_name' /root/reality.json)
 
-	    # Ask for server name (sni)
 	    read -p "Enter server name/SNI (Current value is $current_server_name): " server_name
 	    server_name=${server_name:-$current_server_name}
 
-	    # Modify reality.json with new settings
 	    jq --arg listen_port "$listen_port" --arg server_name "$server_name" '.inbounds[0].listen_port = ($listen_port | tonumber) | .inbounds[0].tls.server_name = $server_name | .inbounds[0].tls.reality.handshake.server = $server_name' /root/reality.json > /root/reality_modified.json
 	    mv /root/reality_modified.json /root/reality.json
 
-	    # Restart sing-box service
 	    systemctl restart sing-box
 	    echo "DONE!"
 	    exit 0
             ;;
         3)
-            echo "Uninstalling..."
-            # Stop and disable sing-box service
+            echo "در حال حذف اسکریپت"
             systemctl stop sing-box
             systemctl disable sing-box
 
-            # Remove files
             rm /etc/systemd/system/sing-box.service
             rm /root/reality.json
             rm /root/sing-box
@@ -111,19 +102,16 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/etc/systemd/
             exit 0
             ;;
         *)
-            echo "Invalid choice. Exiting."
+            echo "انتخاب نامعتبراست و خروج"
             exit 1
             ;;
     esac
 fi
 
-# Fetch the latest (including pre-releases) release version number from GitHub API
 latest_version=$(curl -s "https://api.github.com/repos/SagerNet/sing-box/releases" | jq -r '.[0].name')
 
-# Detect server architecture
 arch=$(uname -m)
 
-# Map architecture names
 case ${arch} in
     x86_64)
         arch="amd64"
@@ -136,50 +124,37 @@ case ${arch} in
         ;;
 esac
 
-# Prepare package names
 package_name="sing-box-${latest_version}-linux-${arch}"
 
-# Download the latest release package (.tar.gz) from GitHub
 curl -sLo "/root/${package_name}.tar.gz" "https://github.com/SagerNet/sing-box/releases/download/v${latest_version}/${package_name}.tar.gz"
 
-# Extract the package and move the binary to /root
 tar -xzf "/root/${package_name}.tar.gz" -C /root
 mv "/root/${package_name}/sing-box" /root/
 
-# Cleanup the package
 rm -r "/root/${package_name}.tar.gz" "/root/${package_name}"
 
-# Set the permissions
 chown root:root /root/sing-box
 chmod +x /root/sing-box
 
-
-# Generate key pair
-echo "Generating key pair..."
+echo "... ایجاد کلید"
 key_pair=$(/root/sing-box generate reality-keypair)
-echo "Key pair generation complete."
+echo ".ایجاد کلید کامل شده است"
 echo
 
-# Extract private key and public key
 private_key=$(echo "$key_pair" | awk '/PrivateKey/ {print $2}' | tr -d '"')
 public_key=$(echo "$key_pair" | awk '/PublicKey/ {print $2}' | tr -d '"')
 
-# Generate necessary values
 uuid=$(/root/sing-box generate uuid)
 short_id=$(/root/sing-box generate rand --hex 8)
 
-# Ask for listen port
-read -p "Enter desired listen port (default: 443): " listen_port
+read -p "Enter desired listen port (دریافت پورت)(default: 443): " listen_port
 listen_port=${listen_port:-443}
 
-# Ask for server name (sni)
-read -p "Enter server name/SNI (default: telewebion.com): " server_name
-server_name=${server_name:-telewebion.com}
+read -p "Enter server name/SNI (دریافت اس ان آی)(default: zula.ir): " server_name
+server_name=${server_name:-zula.ir}
 
-# Retrieve the server IP address
 server_ip=$(curl -s https://api.ipify.org)
 
-# Create reality.json using jq
 jq -n --arg listen_port "$listen_port" --arg server_name "$server_name" --arg private_key "$private_key" --arg short_id "$short_id" --arg uuid "$uuid" --arg server_ip "$server_ip" '{
   "log": {
     "level": "info",
@@ -247,9 +222,8 @@ LimitNOFILE=infinity
 WantedBy=multi-user.target
 EOF
 
-# Check configuration and start the service
 if /root/sing-box check -c /root/reality.json; then
-    echo "Configuration checked successfully. Starting sing-box service..."
+    echo "sing-box پیکربندی با موفقیت بررسی شد. شروع سرویس"
     systemctl daemon-reload
     systemctl enable sing-box
     systemctl start sing-box
@@ -270,7 +244,7 @@ if /root/sing-box check -c /root/reality.json; then
     echo ""
     echo ""
     echo ""
-    echo "Here is the link for v2rayN and v2rayNG :"
+    echo " v2rayN و v2rayNG این لینک مخصوص"
     echo ""
     echo "$server_link"
 else
