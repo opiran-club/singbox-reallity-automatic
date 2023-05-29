@@ -233,8 +233,6 @@ if /root/sing-box check -c /root/reality.json; then
 
     server_link="vless://$uuid@$server_ip:$listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#Reallity-TCP"
 
-    server_link="vless://$uuid@$server_ip:$listen_port?encryption=none&flow=&serviceName=&mode=multi&security=reality&sni=$server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=gRPC&headerType=none#Reallity-gRPC"
-
     # Print the server details
     echo
     echo "Server IP: $server_ip"
