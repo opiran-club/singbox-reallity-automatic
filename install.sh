@@ -58,7 +58,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/etc/systemd/
     echo "2. تغییر پورت و اس ان آی"
     echo "3. حذف هسته سینک باکس"
     echo ""
-    read -p "Enter your choice (1-3): " choice
+    read -p ":انتخاب خود را وارد کنید (3-1)" choice
 
     case $choice in
         1)
