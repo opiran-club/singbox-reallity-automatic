@@ -230,9 +230,7 @@ if /root/sing-box check -c /root/reality.json; then
     systemctl restart sing-box
 
 # Generate the link
-
     server_link="vless://$uuid@$server_ip:$listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#Reallity-TCP"
-
     # Print the server details
     echo
     echo "Server IP: $server_ip"
