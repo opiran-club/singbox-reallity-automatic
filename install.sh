@@ -248,6 +248,6 @@ if /root/sing-box check -c /root/reality.json; then
     echo ""
     echo "$server_link"
 else
-    echo "Error in configuration. Aborting."
+    echo "خطا در پیکربندی و خروج"
 fi
 
