@@ -88,9 +88,11 @@ sing-box format -wc /etc/sing-box/config.json
 ```
 
 #### L) Finnesh and Enjoy Singbox Core and Free Internet
+   از اینترنت بدون سانسور لذت ببرید
 
-
-### building your own config.json
+ 
+### building your personal config.json
+   ساخت پیکربندی شخصی شما
 
 ```
 {
@@ -108,9 +110,9 @@ sing-box format -wc /etc/sing-box/config.json
         "final": "shadowsocks-out"
     }
 }
-Code language: JSON / JSON with Comments (json)
+```
 Replacing tags with actual json blocks:
-
+```
 {
 	"inbounds": [{
 		"type": "mixed",
@@ -171,9 +173,9 @@ Replacing tags with actual json blocks:
 		"final": "shadowsocks-out"
 	}
 }
-Code language: JSON / JSON with Comments (json)
+```
 Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
-
+```
 {
 	"log": {
 		"disabled": false,
