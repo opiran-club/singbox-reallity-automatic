@@ -82,6 +82,7 @@ sing-box check -c /etc/sing-box/config.json
 ```
 
 #### K) Do not concern yourself with additional spaces, tabs, or formatting errors when editing the config file. Sing-Box can automatically correct the file format. Execute the following command
+   هنگام ویرایش فایل پیکربندی، نگران فضاهای اضافی، برگه ها یا خطاهای قالب بندی نباشید. Sing-Box می تواند به طور خودکار فرمت فایل را تصحیح کند. دستور زیر را اجرا کنید
 ```
 sing-box format -wc /etc/sing-box/config.json
 ```
