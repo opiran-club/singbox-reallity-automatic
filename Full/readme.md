@@ -150,10 +150,31 @@ sing-box format -wc /etc/sing-box/config.json
   }
 }
 ```
-##### Inbound
-
-
-##### Outbound
+##### Inbound Structure
+ - Type : direct, mixed, socks, http, shadowsocks, vmess, trojan, naive, hysteria, shadowtls, vless, tun, redirect, tproxy.
+ - 
+```
+{
+  "inbounds": [
+    {
+      "type": "",
+      "tag": ""
+    }
+  ]
+}
+```
+##### Outbound structure
+ - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector. urltest	
+``
+{
+  "outbounds": [
+    {
+      "type": "",
+      "tag": ""
+    }
+  ]
+}
+```
 
 
 ##### Exprimental:
