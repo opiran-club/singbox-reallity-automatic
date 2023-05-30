@@ -55,7 +55,10 @@ EOF
 #### G) customized the config.json
 
    ###### you can use my pre made config as you see above folders
+   همانطور که در پوشه ی بالا می بینید می توانید از تنظیمات از پیش ساخته شده من استفاده کنید
+
    ###### or you can build by your own at the end of the page
+   یا می توانید خودتان با کمک راهنمای انتهای صفحه, آن را بسازید
    
 #### after compleat above configuration so going to next level
 
