@@ -4,6 +4,7 @@ Source: "https://sing-box.sagernet.org/installation/from-source/"
 Many Thanks to : https://vpnrouter.homes/
 
 Step-By-Step Follow Instructions
+گام به گام دستورالعمل ها را دنبال کنید
 
 #### A) Install gcc
 ```
