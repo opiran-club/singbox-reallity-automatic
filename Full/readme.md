@@ -201,12 +201,12 @@ sing-box format -wc /etc/sing-box/config.json
         "final": "shadowsocks-out"
     }
 }
-```
+
 
 ##### Replacing tags with actual json blocks:
  ##### جایگزینی تگها با مقدار واقعی json:
 
-```
+
 {
           "inbounds": [{
 		"type": "mixed",
