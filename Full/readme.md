@@ -94,6 +94,75 @@ sing-box format -wc /etc/sing-box/config.json
 ### building your personal config.json
    ساخت پیکربندی شخصی شما
 
+#### Structure
+```
+{
+  "log": {},
+  "dns": {},
+  "ntp": {},
+  "inbounds": [],
+  "outbounds": [],
+  "route": {},
+  "experimental": {}
+}
+```
+##### Log Structure
+ - Log level: trace, debug, info, warn, error, fatal, panic.
+```
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "box.log",
+    "timestamp": true
+  }
+}
+```
+##### DNS Structure
+ - strategy: prefer_ipv4, prefer_ipv6, ipv4_only, ipv6_only.
+```
+{
+  "dns": {
+    "servers": [],
+    "rules": [],
+    "final": "",
+    "strategy": "",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": false,
+    "fakeip": {}
+  }
+}
+```
+##### NTP Built-in NTP client service.
+
+ - If enabled, it will provide time for protocols like TLS/Shadowsocks/VMess, which is useful for environments where time synchronization is not possible.
+```
+{
+  "ntp": {
+    "enabled": false,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m",
+
+    ... // Dial Fields
+  }
+}
+```
+##### Inbound
+
+
+##### Outbound
+
+
+##### Exprimental:
+ - visit the page for more info: https://sing-box.sagernet.org/configuration/experimental/#secret
+
+##### Routing
+ - visit the page for more info: https://sing-box.sagernet.org/configuration/route/
+
+#### sample config:
 ```
 {
     "inbounds": [{
