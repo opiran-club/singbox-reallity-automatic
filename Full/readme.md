@@ -111,7 +111,8 @@ sing-box format -wc /etc/sing-box/config.json
     }
 }
 ```
-Replacing tags with actual json blocks:
+##### Replacing tags with actual json blocks:
+ ##### جایگزینی تگها با مقدار واقعی json:
 ```
 {
 	"inbounds": [{
@@ -174,7 +175,8 @@ Replacing tags with actual json blocks:
 	}
 }
 ```
-Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
+##### Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
+ ##### اکنون که می‌دانید چگونه چندین ورودی و خروجی داشته باشید، در اینجا یک مثال اضافی برای شما وجود دارد که می‌توانید هنگام ساخت config.json از آن به عنوان نقطه شروع استفاده کنید:
 ```
 {
 	"log": {
