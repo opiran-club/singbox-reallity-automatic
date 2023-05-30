@@ -61,6 +61,7 @@ EOF
    یا می توانید خودتان با کمک راهنمای انتهای صفحه, آن را بسازید
    
 #### after compleat above configuration so going to next level
+   پس از تکمیل پیکربندی بالا، به مرحله بعد بروید
 
 #### H) Enable and start the Sing-Box service
 ```
