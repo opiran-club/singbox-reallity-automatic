@@ -152,7 +152,7 @@ sing-box format -wc /etc/sing-box/config.json
 ```
 ##### Inbound Structure
  - Type : direct, mixed, socks, http, shadowsocks, vmess, trojan, naive, hysteria, shadowtls, vless, tun, redirect, tproxy.
- - 
+
 ```
 {
   "inbounds": [
@@ -164,7 +164,8 @@ sing-box format -wc /etc/sing-box/config.json
 }
 ```
 ##### Outbound structure
- - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector. urltest	
+ - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector. urltest
+ 	
 ``
 {
   "outbounds": [
@@ -175,13 +176,13 @@ sing-box format -wc /etc/sing-box/config.json
   ]
 }
 ```
-
-
 ##### Exprimental:
  - visit the page for more info: https://sing-box.sagernet.org/configuration/experimental/#secret
 
 ##### Routing
  - visit the page for more info: https://sing-box.sagernet.org/configuration/route/
+
+
 
 #### sample config:
 
@@ -201,11 +202,9 @@ sing-box format -wc /etc/sing-box/config.json
         "final": "shadowsocks-out"
     }
 }
-
-
-##### Replacing tags with actual json blocks:
- ##### جایگزینی تگها با مقدار واقعی json:
-
+ 
+ Replacing tags with actual json blocks
+جایگزینی تگها با مقدار واقعی json
 
 {
           "inbounds": [{
@@ -267,12 +266,9 @@ sing-box format -wc /etc/sing-box/config.json
 		"final": "shadowsocks-out"
 	}
 }
-```
 
-##### Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
- ##### اکنون که می‌دانید چگونه چندین ورودی و خروجی داشته باشید، در اینجا یک مثال اضافی برای شما وجود دارد که می‌توانید هنگام ساخت config.json از آن به عنوان نقطه شروع استفاده کنید:
- 
-```
+Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
+ اکنون که می‌دانید چگونه چندین ورودی و خروجی داشته باشید، در اینجا یک مثال اضافی برای شما وجود دارد که می‌توانید هنگام ساخت config.json از آن به عنوان نقطه شروع استفاده کنید:
 {
 	"log": {
 		"disabled": false,
@@ -370,4 +366,3 @@ sing-box format -wc /etc/sing-box/config.json
 	"experimental": {}
 }
 ```
-
