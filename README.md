@@ -14,3 +14,7 @@
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/opiran-club/singbox-reallity-automatic/main/install.sh --ipv4)
 ```
+
+### For full installation go to the "full" folder
+
+### برای نصب کامل به پوشه "Full" بروید
