@@ -165,7 +165,7 @@ sing-box format -wc /etc/sing-box/config.json
 ```
 ##### Outbound structure
  - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector, urltest.
-``
+```
 {
   "outbounds": [
     {
