@@ -184,6 +184,7 @@ sing-box format -wc /etc/sing-box/config.json
  - visit the page for more info: https://sing-box.sagernet.org/configuration/route/
 
 #### sample config:
+
 ```
 {
     "inbounds": [{
@@ -201,11 +202,13 @@ sing-box format -wc /etc/sing-box/config.json
     }
 }
 ```
+
 ##### Replacing tags with actual json blocks:
  ##### جایگزینی تگها با مقدار واقعی json:
+
 ```
 {
-	"inbounds": [{
+          "inbounds": [{
 		"type": "mixed",
 		"tag": "mixed-in",
 		"listen": "127.0.0.1",
@@ -265,8 +268,10 @@ sing-box format -wc /etc/sing-box/config.json
 	}
 }
 ```
+
 ##### Now that you understand how to have multiple inbounds and outbounds, here’s an additional example for you to use as a starting point when building your config.json:
  ##### اکنون که می‌دانید چگونه چندین ورودی و خروجی داشته باشید، در اینجا یک مثال اضافی برای شما وجود دارد که می‌توانید هنگام ساخت config.json از آن به عنوان نقطه شروع استفاده کنید:
+ 
 ```
 {
 	"log": {
