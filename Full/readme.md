@@ -164,8 +164,7 @@ sing-box format -wc /etc/sing-box/config.json
 }
 ```
 ##### Outbound structure
- - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector. urltest
- 	
+ - Type: direct, block, socks, http, shadowsocks, trojan, wireguard, hysteria, vless, shadowtls, tor, ssh, dns, selector, urltest.
 ``
 {
   "outbounds": [
@@ -176,14 +175,11 @@ sing-box format -wc /etc/sing-box/config.json
   ]
 }
 ```
+
 ##### Exprimental:
  - visit the page for more info: https://sing-box.sagernet.org/configuration/experimental/#secret
-
 ##### Routing
  - visit the page for more info: https://sing-box.sagernet.org/configuration/route/
-
-
-
 #### sample config:
  - visit this page: https://vpnrouter.homes/build-singbox-config
  
